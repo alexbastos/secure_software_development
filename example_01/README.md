@@ -1,4 +1,4 @@
-# Estudo de Caso: Vulnerabilidade em Formulário de Comentários
+# Estudo de Caso: Vulnerabilidade em Formulário de Comentários (Sugestão: Utilizar o SO Linux ou equivalentes)
 
 # Cenário:
 
@@ -15,6 +15,20 @@ Primeiro, você precisa de um código de servidor simples que tenha a vulnerabil
 Código Python (app.py):
 
 Observação sobre a vulnerabilidade: A linha {{ comment | safe }} no template é intencionalmente vulnerável. O filtro | safe no Jinja2 (motor de template do Flask) desabilita a sanitização automática, fazendo com que o HTML injetado seja renderizado.
+
+Executar: Precisa do python instalado 
+
+(base) alex@iMac-de-Alex example_01 % python3 app.py 
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 647-019-061
+
+
 
 # Passo 2: Configurando o Servidor de Coleta de Cookies
 
@@ -46,51 +60,3 @@ Envie o comentário: Clique em "Enviar". A página irá recarregar e exibir a me
 Verifique o ataque: Volte para a página inicial da aplicação (http://127.0.0.1:5000). O navegador, ao renderizar o comentário, executará o script. Ele tentará carregar a imagem, o que fará uma requisição GET para o seu servidor de coleta, enviando o cookie.
 
 Confirme o sucesso: Verifique o seu servidor de coleta. O arquivo cookies_roubados.txt deve ter sido criado e conter o cookie roubado.
-
-
-
-
-
-
-
-
-# Código Vulnerável (Exemplo Simplificado em Python com Flask):
-
-
-
-
-### Código em Python ### 
-formulario.py
-
-# O Ataque:
-
-Um atacante, ciente de que o código não valida a entrada, pode usar o campo de comentário para injetar um código malicioso. Em vez de escrever um comentário normal, ele pode inserir um script JavaScript:
-
-Conteúdo do Comentário do Atacante:
-
-###  Código em HTML - Inserir esse código dentro do formulário ### 
-ataque.html 
-
-# Resultado:
-
-Quando o comentário é postado e outro usuário acessa a página para ler os comentários, o navegador desse usuário interpretará a string injetada como um script JavaScript. O script será executado no contexto da página do blog, que é um ambiente confiável para o navegador. O script malicioso, então, roubará os cookies de sessão do usuário (que podem conter informações de autenticação) e os enviará para o servidor do atacante. O atacante pode usar esses cookies para se passar pelo usuário e obter acesso não autorizado à sua conta.
-
-# COMO EXECUTAR - Sugestão - Utiizar ambiente Linux
-
-1 - Necessário python instalado máquina
-2- Instalar a biblioteca Flask -  pip install Flask
-3 - Executar o arquivo em python - python3 formulario.py
-
-(base) alex@iMac-de-Alex example_01 % python3 formulario.py
- * Serving Flask app 'formulario'
- * Debug mode: on
-WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
- * Running on http://127.0.0.1:5000
-Press CTRL+C to quit
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 647-019-061
-
-A Bilbioteca Flask é um framework WSGI leve para aplicações web. Ele foi projetado para tornar os primeiros passos rápidos e fáceis, com capacidade de expansão para aplicações complexas. Comece com a Instalação e, em seguida, obtenha uma visão geral com o Início Rápido .
-
-4 - Abrir o browser na página http://127.0.0.1:5000
