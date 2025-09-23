@@ -1,3 +1,5 @@
+#código simplicado
+
 from flask import Flask, request, render_template_string
 from markupsafe import escape # Importa a função de sanitização
 
