@@ -1,8 +1,10 @@
 # secure_software_development
 Secure Software Development
 
+A seguir um conjuntos de exemplos sobre ataques e vulnerabilidades em desenvolvimento de software.
+
 # Example 01
-Estudo de caso de vulnerabilidade em formulários de comentários em que é demonstrado o ataque de XSS persistente, você precisará simular o ambiente de uma aplicação web vulnerável.
+Estudo de caso de vulnerabilidade em formulários de comentários em que é demonstrado o ataque de XSS persistente. Para testar o exemplo, será necessário simular um ambiente de uma aplicação web vulnerável.
 
 Conclusão:
 
