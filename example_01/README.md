@@ -1,4 +1,4 @@
-# Estudo de Caso: Vulnerabilidade em Formulário de Comentários (Sugestão: Utilizar o SO Linux ou equivalentes)
+# Estudo de Caso: Vulnerabilidade em Formulário de Comentários (Sugestão: Utilizar o SO Kali, Linux ou equivalentes)
 
 # Ataque de XSS persistente:
 Um ataque de XSS persistente ocorre quando um script malicioso é injetado e armazenado no servidor de um site vulnerável, como em um campo de comentário ou perfil de usuário, e é então executado no navegador de qualquer usuário que acesse o conteúdo afetado. Este tipo de ataque é também conhecido como XSS armazenado e é considerado o mais perigoso, pois não requer uma interação direta ou um link malicioso da vítima, podendo afetar muitos usuários sem que eles saibam, e o script malicioso pode roubar informações confidenciais ou tomar controle do navegador do usuário. 
