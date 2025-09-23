@@ -1,5 +1,36 @@
 # Estudo de Caso: Vulnerabilidade em Formulário de Comentários (Sugestão: Utilizar o SO Linux ou equivalentes)
 
+# Ataque de XSS persistente:
+Um ataque de XSS persistente ocorre quando um script malicioso é injetado e armazenado no servidor de um site vulnerável, como em um campo de comentário ou perfil de usuário, e é então executado no navegador de qualquer usuário que acesse o conteúdo afetado. Este tipo de ataque é também conhecido como XSS armazenado e é considerado o mais perigoso, pois não requer uma interação direta ou um link malicioso da vítima, podendo afetar muitos usuários sem que eles saibam, e o script malicioso pode roubar informações confidenciais ou tomar controle do navegador do usuário. 
+Como funciona um ataque de XSS persistente
+
+Injeção do código: Um invasor injeta um script malicioso (payload) em um campo de entrada de um site, como um fórum de mensagens, comentários de blogs ou perfis de usuários. 
+
+Armazenamento: O script é então salvo permanentemente no servidor do site ou no banco de dados da aplicação web. 
+
+Execução: Quando outros usuários visitam a página afetada, seus navegadores carregam o conteúdo com o script malicioso e o executam. 
+
+Consequências
+Roubo de dados: O script pode roubar cookies, credenciais de login ou outras informações sensíveis do usuário e enviá-las de volta ao invasor. 
+
+Ataques mais amplos: Como o script é armazenado e executado automaticamente toda vez que a página é acessada, ele pode afetar um grande número de usuários simultaneamente. 
+
+Comprometimento da sessão: Pode roubar o cookie de sessão do usuário, permitindo que o invasor tome controle da conta sem que a vítima precise fazer login. 
+
+Exemplos de pontos de injeção 
+
+Campos de comentários em um blog.
+
+Perfis de usuários em redes sociais.
+
+Fóruns de mensagens.
+
+Campos de nome de usuário ou outros formulários de entrada.
+
+Diferença para XSS refletido
+
+Ao contrário de um ataque de XSS refletido, onde o script é enviado para a vítima através de um link malicioso e não é armazenado, um XSS persistente armazena o script, tornando-o um risco constante para qualquer usuário que visite a página. 
+
 # Cenário:
 
 Imagine uma aplicação de blog simples que permite aos usuários postar comentários em artigos. O formulário de comentários tem um campo de texto para o nome do usuário e outro para o conteúdo do comentário. O código do servidor recebe esses dados e os insere diretamente em uma página HTML que é exibida para outros usuários, sem qualquer tipo de validação ou sanitização.
