@@ -19,7 +19,7 @@ Dados copiados com segurança: AAAAAAAAAAAAAAA
 
 Para evitar esse problema, você deve usar funções mais seguras que realizam a verificação de limites. A melhor prática é sempre especificar o tamanho máximo de dados a serem copiados.
 
-Em C, as alternativas seguras para strcpy são:
+Em C++, as alternativas seguras para strcpy são:
 
 strncpy: Copia no máximo n caracteres. No entanto, ela não garante que a string de destino será terminada com \0, então é preciso adicionar o terminador manualmente.
 

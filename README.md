@@ -16,11 +16,11 @@ Este estudo de caso demonstra como a ausência de um controle de segurança simp
 
 # buffer overflow - função strcpy
 
-Para ilustrar a vulnerabilidade de buffer overflow, aqui está um exemplo de código em C que utiliza a função strcpy de forma insegura.
+Para ilustrar a vulnerabilidade de buffer overflow, aqui está um exemplo de código em C++ que utiliza a função strcpy de forma insegura.
 
 
 # Example 003 
 
 # buffer overflow - Substituir a função strcpy pela função snprintf 
 
-Para ilustrar a vulnerabilidade de buffer overflow, aqui está um exemplo de código em C que utiliza a função strcpy de forma insegura.
+Para ilustrar a vulnerabilidade de buffer overflow, aqui está um exemplo de código em C++ que utiliza a função snprintf ao invés da funçãostrcpy de forma a corrigir o problema de buffer overflow..
