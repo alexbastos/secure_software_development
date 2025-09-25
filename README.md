@@ -1,5 +1,4 @@
 # secure_software_development
-Secure Software Development
 
 A seguir um conjuntos de exemplos sobre ataques e vulnerabilidades em desenvolvimento de software.
 
